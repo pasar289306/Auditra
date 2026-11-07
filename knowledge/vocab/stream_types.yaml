@@ -1,0 +1,16 @@
+# The 15 water stream types (Methodology.doc, part 2, section 2.3). The table is extensible by design.
+- {id: raw_water, en: "Raw Water", fa: "آب خام ورودی"}
+- {id: fresh_water, en: "Fresh Water", fa: "آب تازه"}
+- {id: potable_water, en: "Potable Water", fa: "آب شرب"}
+- {id: process_water, en: "Process Water", fa: "آب فرآیندی"}
+- {id: cooling_water, en: "Cooling Water", fa: "آب خنک‌کاری"}
+- {id: boiler_feed_water, en: "Boiler Feed Water", fa: "آب تغذیه بویلر"}
+- {id: condensate, en: "Condensate", fa: "کندانس"}
+- {id: ro_permeate, en: "RO Permeate", fa: "آب تولیدی RO"}
+- {id: ro_concentrate, en: "RO Concentrate", fa: "جریان تغلیظ‌شده RO"}
+- {id: reclaimed_water, en: "Reclaimed Water", fa: "آب بازیافتی"}
+- {id: recycled_water, en: "Recycled Water", fa: "آب بازچرخانی‌شده"}
+- {id: wastewater, en: "Wastewater", fa: "فاضلاب"}
+- {id: blowdown, en: "Blowdown", fa: "جریان تخلیه"}
+- {id: rainwater, en: "Rainwater", fa: "آب باران"}
+- {id: evaporation, en: "Evaporation", fa: "تبخیر"}

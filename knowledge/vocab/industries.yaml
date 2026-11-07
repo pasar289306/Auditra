@@ -1,0 +1,16 @@
+# Industry groups (Methodology.doc, part 2, section 2.1). Codes are stable identifiers.
+- {id: IND-01, fa: "انرژی", en: "Energy", examples_fa: "نیروگاه حرارتی، برق، پالایشگاه"}
+- {id: IND-02, fa: "نفت و گاز", en: "Oil and gas", examples_fa: "پالایش، گاز، پتروشیمی"}
+- {id: IND-03, fa: "فلزات", en: "Metals", examples_fa: "فولاد، مس، آلومینیوم، روی"}
+- {id: IND-04, fa: "معدن", en: "Mining", examples_fa: "استخراج، فرآوری، کنسانتره"}
+- {id: IND-05, fa: "مصالح ساختمانی", en: "Building materials", examples_fa: "سیمان، گچ، شیشه، سرامیک"}
+- {id: IND-06, fa: "صنایع غذایی", en: "Food and beverage", examples_fa: "لبنیات، نوشیدنی، قند، روغن"}
+- {id: IND-07, fa: "نساجی", en: "Textile", examples_fa: "رنگرزی، ریسندگی، تکمیل"}
+- {id: IND-08, fa: "کاغذ و چوب", en: "Pulp, paper and wood", examples_fa: "خمیر کاغذ، کاغذسازی"}
+- {id: IND-09, fa: "شیمیایی", en: "Chemical", examples_fa: "مواد شیمیایی، کود، شوینده"}
+- {id: IND-10, fa: "دارویی", en: "Pharmaceutical", examples_fa: "تولید دارو و مواد اولیه"}
+- {id: IND-11, fa: "خودرو", en: "Automotive", examples_fa: "تولید قطعات و مونتاژ"}
+- {id: IND-12, fa: "الکترونیک", en: "Electronics", examples_fa: "نیمه‌هادی و تجهیزات الکترونیکی"}
+- {id: IND-13, fa: "کشاورزی صنعتی", en: "Industrial agriculture", examples_fa: "گلخانه، فرآوری محصولات"}
+- {id: IND-14, fa: "لجستیک صنعتی", en: "Industrial logistics", examples_fa: "شست‌وشو و خدمات"}
+- {id: IND-15, fa: "سایر صنایع", en: "Other industries", examples_fa: "صنایع خاص و ترکیبی"}

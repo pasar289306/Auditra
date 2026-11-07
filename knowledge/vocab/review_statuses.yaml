@@ -1,0 +1,4 @@
+- {id: draft, fa: "پیش‌نویس، منتظر بازبینی کارشناس"}
+- {id: expert_reviewed, fa: "بازبینی‌شده توسط کارشناس"}
+- {id: approved, fa: "تأییدشده"}
+- {id: deprecated, fa: "منسوخ"}

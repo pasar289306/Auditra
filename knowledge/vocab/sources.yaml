@@ -1,0 +1,14 @@
+# Source registry. Only sources that were actually used are listed.
+# M1-* = Methodology.doc part 1 (numbered sections 1..14); M2-* = part 2 ("بخش" sections).
+# Standards named inside Methodology.doc (ISO 46001, DOE, EPA, EU BREF, ...) are NOT cited per record yet:
+# they must be opened and verified by a human before any record cites them.
+- {id: M1-2.2, doc: "Methodology.doc", loc: "part 1, 2.2 water consumption classification"}
+- {id: M1-4.1, doc: "Methodology.doc", loc: "part 1, 4.1 water mass balance"}
+- {id: M1-6.1, doc: "Methodology.doc", loc: "part 1, 6.1 cooling towers"}
+- {id: M1-6.2, doc: "Methodology.doc", loc: "part 1, 6.2 boiler and steam system"}
+- {id: M1-6.3, doc: "Methodology.doc", loc: "part 1, 6.3 reverse osmosis"}
+- {id: M1-6.4, doc: "Methodology.doc", loc: "part 1, 6.4 production processes"}
+- {id: M1-6.5, doc: "Methodology.doc", loc: "part 1, 6.5 industrial wastewater treatment"}
+- {id: M1-8, doc: "Methodology.doc", loc: "part 1, 8 solutions bank (Reduce, Replace, Reuse) and industry examples"}
+- {id: M2-2.2, doc: "Methodology.doc", loc: "part 2, 2.2 consumer system classification SYS-01..12"}
+- {id: M2-4.6, doc: "Methodology.doc", loc: "part 2, 4.6 equipment performance models (pump, COC, RO recovery, removal)"}

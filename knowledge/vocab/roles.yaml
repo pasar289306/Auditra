@@ -1,0 +1,9 @@
+# Water role of an equipment type in the plant water network.
+- {id: intake, en: "Intake / withdrawal", fa: "برداشت"}
+- {id: storage, en: "Storage / buffering", fa: "ذخیره‌سازی"}
+- {id: transport, en: "Transport / distribution", fa: "انتقال"}
+- {id: treatment, en: "Treatment / quality change", fa: "تصفیه و تغییر کیفیت"}
+- {id: use, en: "Water use / consumption", fa: "مصرف"}
+- {id: recovery, en: "Recovery / reuse", fa: "بازیافت و استفاده مجدد"}
+- {id: discharge, en: "Discharge / disposal", fa: "تخلیه"}
+- {id: control, en: "Flow or loss control", fa: "کنترل جریان یا اتلاف"}

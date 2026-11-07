@@ -1,0 +1,4 @@
+# Three accounting levels (Methodology.doc part 2, 1.2).
+- {id: site, en: "Site Water Accounting", fa: "حسابداری مجتمع"}
+- {id: process, en: "Process Water Accounting", fa: "حسابداری واحد فرآیندی"}
+- {id: equipment, en: "Equipment Water Accounting", fa: "حسابداری تجهیز"}

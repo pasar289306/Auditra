@@ -1,0 +1,7 @@
+# Water flows that are real in the balance but are not among the 15 stream types.
+# Kept separate so the 15 agreed types stay untouched. Added in this package, pending expert review.
+- {id: steam, en: "Steam (vapor phase)", fa: "بخار", origin: "methodology_parameter_steam_flow"}
+- {id: drift, en: "Drift (droplet carry-over)", fa: "دریفت", origin: "Methodology.doc part 1, 6.1 (term D)"}
+- {id: leakage_overflow, en: "Leakage and overflow", fa: "نشتی و سرریز", origin: "Methodology.doc part 1, 6.1 (term L) and 8"}
+- {id: water_in_product, en: "Water embedded in product", fa: "آب موجود در محصول", origin: "Methodology.doc part 1, 4.1 and 6.4"}
+- {id: sludge_moisture, en: "Moisture leaving with sludge or solids", fa: "رطوبت خارج‌شده با لجن یا جامدات", origin: "added_pending_review"}

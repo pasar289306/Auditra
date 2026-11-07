@@ -1,0 +1,41 @@
+# Measurement parameter vocabulary used by the equipment bank.
+# origin: methodology = Methodology.doc part 1, 3.1/3.2; methodology_formula = appears in a Methodology.doc formula or AI input list;
+# added_pending_review = added by Claude for coverage, needs expert review.
+# Hydraulic (3.1)
+- {id: flow_rate, symbol: Q, unit: "m3/h", group: hydraulic, en: "Volumetric flow rate", fa: "دبی حجمی", origin: methodology}
+- {id: volume, symbol: V, unit: "m3", group: hydraulic, en: "Volume", fa: "حجم مصرفی", origin: methodology}
+- {id: pressure, symbol: P, unit: "bar", group: hydraulic, en: "Pressure", fa: "فشار", origin: methodology}
+- {id: velocity, symbol: v, unit: "m/s", group: hydraulic, en: "Flow velocity", fa: "سرعت جریان", origin: methodology}
+- {id: level, symbol: L, unit: "% or m", group: hydraulic, en: "Tank or basin level", fa: "سطح مخزن", origin: methodology}
+- {id: temperature, symbol: T, unit: "°C", group: hydraulic, en: "Water temperature", fa: "دمای آب", origin: methodology}
+- {id: diff_pressure, symbol: "ΔP", unit: "bar", group: hydraulic, en: "Differential pressure", fa: "اختلاف فشار", origin: methodology}
+- {id: run_time, symbol: t, unit: "h", group: hydraulic, en: "Operating time", fa: "زمان کارکرد", origin: methodology}
+# Quality (3.2)
+- {id: ph, symbol: pH, unit: "-", group: quality, en: "pH", fa: "pH", origin: methodology}
+- {id: ec, symbol: EC, unit: "µS/cm", group: quality, en: "Electrical conductivity", fa: "هدایت الکتریکی", origin: methodology}
+- {id: tds, symbol: TDS, unit: "mg/L", group: quality, en: "Total dissolved solids", fa: "مواد محلول", origin: methodology}
+- {id: tss, symbol: TSS, unit: "mg/L", group: quality, en: "Total suspended solids", fa: "مواد معلق", origin: methodology}
+- {id: turbidity, symbol: Turbidity, unit: "NTU", group: quality, en: "Turbidity", fa: "کدورت", origin: methodology}
+- {id: hardness, symbol: Hardness, unit: "mg/L as CaCO3", group: quality, en: "Hardness", fa: "سختی", origin: methodology}
+- {id: alkalinity, symbol: Alkalinity, unit: "mg/L as CaCO3", group: quality, en: "Alkalinity", fa: "قلیایت", origin: methodology}
+- {id: chloride, symbol: Cl, unit: "mg/L", group: quality, en: "Chloride", fa: "کلراید", origin: methodology}
+- {id: sulfate, symbol: SO4, unit: "mg/L", group: quality, en: "Sulfate", fa: "سولفات", origin: methodology}
+- {id: silica, symbol: SiO2, unit: "mg/L", group: quality, en: "Silica", fa: "سیلیس", origin: methodology}
+- {id: cod, symbol: COD, unit: "mg/L", group: quality, en: "Chemical oxygen demand", fa: "COD", origin: methodology}
+- {id: bod5, symbol: BOD5, unit: "mg/L", group: quality, en: "Biochemical oxygen demand (5 day)", fa: "BOD5", origin: methodology}
+- {id: dissolved_oxygen, symbol: DO, unit: "mg/L", group: quality, en: "Dissolved oxygen", fa: "اکسیژن محلول", origin: methodology}
+- {id: oil_grease, symbol: "O&G", unit: "mg/L", group: quality, en: "Oil and grease", fa: "روغن و چربی", origin: methodology}
+- {id: total_coliform, symbol: TC, unit: "MPN or CFU", group: quality, en: "Total coliform", fa: "کلیفرم کل", origin: methodology}
+# Operational and energy parameters
+- {id: wet_bulb_temperature, symbol: Twb, unit: "°C", group: operating, en: "Ambient wet-bulb temperature", fa: "دمای حباب تر محیط", origin: methodology_formula}
+- {id: head, symbol: H, unit: "m", group: operating, en: "Pump head", fa: "هد پمپ", origin: methodology_formula}
+- {id: electric_power, symbol: Pel, unit: "kW", group: operating, en: "Electric power", fa: "توان الکتریکی", origin: methodology_formula}
+- {id: motor_current, symbol: I, unit: "A", group: operating, en: "Motor current", fa: "جریان موتور", origin: methodology_formula}
+- {id: vibration, symbol: Vib, unit: "mm/s", group: operating, en: "Vibration", fa: "ارتعاش", origin: methodology_formula}
+- {id: steam_flow, symbol: Qs, unit: "t/h", group: operating, en: "Steam flow", fa: "دبی بخار", origin: methodology_formula}
+- {id: production_rate, symbol: P, unit: "t/h or units/h", group: operating, en: "Production rate", fa: "نرخ تولید", origin: methodology_formula}
+- {id: sludge_volume, symbol: Vs, unit: "m3 or t", group: operating, en: "Sludge volume", fa: "حجم لجن", origin: methodology_formula}
+- {id: chemical_consumption, symbol: Cc, unit: "kg/h or L/h", group: operating, en: "Chemical consumption", fa: "مصرف مواد شیمیایی", origin: methodology_formula}
+- {id: energy_consumption, symbol: E, unit: "kWh/m3", group: operating, en: "Specific energy consumption", fa: "مصرف ویژه انرژی", origin: methodology_formula}
+- {id: humidity, symbol: RH, unit: "%", group: operating, en: "Relative humidity", fa: "رطوبت نسبی", origin: methodology_formula}
+- {id: residual_chlorine, symbol: Cl2, unit: "mg/L", group: quality, en: "Residual chlorine", fa: "کلر باقی‌مانده", origin: added_pending_review}

@@ -1,0 +1,114 @@
+system: SYS-05
+defaults: {ind: [ALL], lvl: [process, equipment], status: draft}
+records:
+- id: EQP-05-001
+  fa: "سامانه شست‌وشوی درجا (CIP)"
+  en: "Clean-in-place (CIP) system"
+  sub: cip
+  ind: [IND-06, IND-09, IND-10]
+  role: [use, recovery]
+  in: [fresh_water, potable_water, recycled_water, ro_permeate]
+  out: [wastewater, recycled_water]
+  params: [flow_rate, temperature, ph, ec, chemical_consumption, volume]
+  note: "بازیافت آب آبکشی یا قلیایی با کنترل کیفیت؛ آب نهایی آبکشی اغلب کیفیت بالا لازم دارد."
+  ref: [M1-8]
+- id: EQP-05-002
+  fa: "شلنگ و واترجت شست‌وشوی تجهیزات"
+  en: "Equipment washdown hoses and pressure washers"
+  sub: washdown
+  role: [use]
+  in: [fresh_water, process_water, recycled_water]
+  out: [wastewater]
+  params: [flow_rate, volume, run_time, pressure]
+  note: "مصرف پراکنده و بدون کنتور؛ نازل‌های کم‌مصرف و قطع خودکار صرفه‌جویی دارد."
+  ref: [M1-2.2, M1-8]
+- id: EQP-05-003
+  fa: "شست‌وشوی کف و محوطه سالن"
+  en: "Floor and area washing"
+  sub: area_washing
+  role: [use]
+  in: [fresh_water, recycled_water]
+  out: [wastewater]
+  params: [volume, run_time]
+  note: "مصرف زمانی و غیرضروری قابل حذف؛ جایگزینی با جاروی خشک یا بازچرخانی."
+  ref: [M1-2.2, M1-6.4]
+- id: EQP-05-004
+  fa: "آبکشی پادجریان چندمرحله‌ای"
+  en: "Multi-stage counter-current rinse"
+  sub: counter_current_rinse
+  ind: [IND-03, IND-07, IND-11, IND-12]
+  role: [use, recovery]
+  in: [process_water, ro_permeate, fresh_water]
+  out: [wastewater, recycled_water]
+  params: [flow_rate, ec, volume, ph]
+  note: "آب تازه فقط در مرحله آخر وارد و در مراحل قبل استفاده مجدد می‌شود."
+  ref: [M1-6.4, M1-8]
+- id: EQP-05-005
+  fa: "ماشین شست‌وشوی بطری و ظروف"
+  en: "Bottle and container washer-rinser"
+  sub: container_washer
+  ind: [IND-06, IND-10]
+  role: [use]
+  in: [potable_water, fresh_water, recycled_water]
+  out: [wastewater]
+  params: [flow_rate, temperature, ph, ec, chemical_consumption]
+  note: "آبکشی نهایی با کیفیت بالا و آبکشی‌های اولیه با آب بازیافتی ممکن است."
+- id: EQP-05-006
+  fa: "خط اسیدشویی و آبکشی (پیکلینگ)"
+  en: "Pickling line rinse"
+  sub: pickling_rinse
+  ind: [IND-03]
+  role: [use]
+  in: [process_water, fresh_water]
+  out: [wastewater, recycled_water]
+  params: [flow_rate, ph, ec, tds, chloride]
+  note: "پساب اسیدی با فلزات؛ آبکشی پادجریان و بازیافت اسید رایج است."
+- id: EQP-05-007
+  fa: "خطوط آبکشی آبکاری الکتریکی"
+  en: "Electroplating rinse lines"
+  sub: plating_rinse
+  ind: [IND-03, IND-11, IND-12]
+  role: [use]
+  in: [process_water, ro_permeate, fresh_water]
+  out: [wastewater, recycled_water]
+  params: [flow_rate, ec, ph, tds, volume]
+  note: "آبکشی‌ها فلز سنگین دارند؛ هدایت آبکشی معیار کنترل دبی است."
+- id: EQP-05-008
+  fa: "کارواش خودرو و کامیون"
+  en: "Vehicle and truck wash"
+  sub: vehicle_wash
+  role: [use, recovery]
+  in: [fresh_water, recycled_water, reclaimed_water]
+  out: [wastewater, recycled_water]
+  params: [volume, flow_rate, oil_grease, tss]
+  note: "با جداکننده روغن و فیلتر قابل بازچرخانی است."
+  ref: [M1-2.2]
+- id: EQP-05-009
+  fa: "شست‌وشوی مخازن و ظروف فرآیندی"
+  en: "Tank and vessel cleaning"
+  sub: tank_cleaning
+  ind: [IND-02, IND-06, IND-09, IND-10]
+  role: [use]
+  in: [fresh_water, process_water, ro_permeate]
+  out: [wastewater]
+  params: [volume, flow_rate, ph, cod]
+  note: "مصرف دوره‌ای و حجیم؛ باید به‌عنوان رویداد با حجم ثبت شود."
+- id: EQP-05-010
+  fa: "ایستگاه‌های آبکشی ویفر و قطعات الکترونیکی (آب فوق‌خالص)"
+  en: "Wafer and electronics rinse stations (ultrapure water)"
+  sub: ultrapure_rinse
+  ind: [IND-12]
+  role: [use, recovery]
+  in: [process_water, ro_permeate]
+  out: [wastewater, reclaimed_water]
+  params: [flow_rate, ec, volume, ph]
+  note: "آب با کیفیت بسیار بالا؛ آبکشی‌های کم‌آلودگی به مصارف دیگر برمی‌گردد."
+- id: EQP-05-011
+  fa: "خشک‌شویی و لباس‌شویی صنعتی (لباس کار)"
+  en: "Industrial laundry (workwear)"
+  sub: industrial_laundry
+  role: [use, recovery]
+  in: [fresh_water, potable_water, recycled_water]
+  out: [wastewater, recycled_water]
+  params: [volume, temperature, ph, cod, tss]
+  note: "آبکشی آخر برای شست‌وی بعدی قابل استفاده مجدد است."

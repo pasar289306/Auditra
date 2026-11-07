@@ -1,0 +1,334 @@
+system: SYS-04
+defaults: {ind: [ALL], lvl: [process, equipment], status: draft}
+records:
+- id: EQP-04-001
+  fa: "مخزن اختلاط و افزودن آب به محصول"
+  en: "Product incorporation and mixing tank"
+  sub: product_incorporation
+  ind: [IND-05, IND-06, IND-09, IND-10]
+  role: [use]
+  in: [process_water, fresh_water, potable_water]
+  flows: [water_in_product]
+  params: [flow_rate, volume, level]
+  note: "آب جزو ترکیب محصول می‌شود و از سیستم خارج می‌شود؛ پایه محاسبه مصرف ویژه."
+  ref: [M1-4.1, M1-6.4]
+- id: EQP-04-002
+  fa: "راکتور یا واحد رقیق‌سازی آبی"
+  en: "Aqueous reactor or dilution unit"
+  sub: aqueous_reactor
+  ind: [IND-02, IND-09, IND-10]
+  role: [use]
+  in: [process_water, fresh_water, ro_permeate]
+  out: [wastewater]
+  flows: [water_in_product]
+  params: [flow_rate, temperature, ph, ec]
+  note: "آب واکنش و رقیق‌سازی؛ بخشی در محصول می‌ماند و بخشی پساب می‌شود."
+  ref: [M1-6.4]
+- id: EQP-04-003
+  fa: "واحد شست‌وشو و دانه‌بندی مواد اولیه"
+  en: "Raw material washing and classification unit"
+  sub: material_washing
+  ind: [IND-04, IND-05, IND-06, IND-13]
+  role: [use]
+  in: [process_water, fresh_water, recycled_water]
+  out: [wastewater]
+  flows: [water_in_product, sludge_moisture]
+  params: [flow_rate, turbidity, tss, volume]
+  note: "آب شست‌وشوی مواد اولیه؛ بازچرخانی پس از ته‌نشینی ممکن است."
+  ref: [M1-6.4]
+- id: EQP-04-004
+  fa: "اسکرابر تر (پاکسازی گاز)"
+  en: "Wet scrubber (gas cleaning)"
+  sub: wet_scrubber
+  ind: [IND-01, IND-03, IND-05, IND-09]
+  role: [use]
+  in: [process_water, recycled_water, fresh_water]
+  out: [wastewater, evaporation]
+  params: [flow_rate, ph, tss, ec, temperature]
+  note: "مدار گردشی با تبخیر و بلودان؛ کیفیت آب گردشی را باید کنترل کرد."
+- id: EQP-04-005
+  fa: "سامانه کوئنچ (خنک‌سازی سریع گاز یا محصول)"
+  en: "Quench system (gas or product)"
+  sub: quench
+  ind: [IND-02, IND-03, IND-09]
+  role: [use]
+  in: [process_water, recycled_water]
+  out: [evaporation, wastewater]
+  params: [flow_rate, temperature, tds]
+  note: "بخش عمده آب تبخیر می‌شود؛ باقی‌مانده پساب با آلودگی فرآیندی است."
+- id: EQP-04-006
+  fa: "آماده‌سازی و انتقال هیدرولیکی دوغاب"
+  en: "Slurry preparation and hydraulic transport"
+  sub: slurry_transport
+  ind: [IND-01, IND-04, IND-05]
+  role: [use, transport]
+  in: [process_water, recycled_water, fresh_water]
+  out: [recycled_water, wastewater]
+  flows: [water_in_product, sludge_moisture, leakage_overflow]
+  params: [flow_rate, velocity, pressure]
+  note: "آب حامل جامد؛ نشتی و سرریز خطوط دوغاب و بازگشت آب مهم است."
+- id: EQP-04-007
+  fa: "سامانه پاشش آب برای کنترل گردوغبار فرآیندی"
+  en: "Process dust suppression spray system"
+  sub: dust_suppression
+  ind: [IND-01, IND-03, IND-04, IND-05]
+  role: [use]
+  in: [process_water, recycled_water, reclaimed_water]
+  out: [evaporation]
+  flows: [water_in_product]
+  params: [flow_rate, volume, run_time]
+  note: "پاشش روی انباشت‌ها و نقاله‌ها؛ زمان‌بندی و نازل بر مصرف اثر دارد."
+  ref: [M1-8]
+- id: EQP-04-008
+  fa: "پاشش خنک‌کاری ثانویه ریخته‌گری مداوم"
+  en: "Continuous caster secondary cooling spray"
+  sub: caster_cooling
+  ind: [IND-03]
+  role: [use]
+  in: [cooling_water, process_water]
+  out: [evaporation, wastewater, cooling_water]
+  params: [flow_rate, pressure, temperature, tss, oil_grease]
+  note: "آب مستقیم با پوسته و روغن؛ معمولاً با مدار تصفیه و برج بازچرخانی می‌شود."
+- id: EQP-04-009
+  fa: "خنک‌کاری و پوسته‌زدایی نورد گرم"
+  en: "Hot rolling mill cooling and descaling water"
+  sub: rolling_mill_water
+  ind: [IND-03]
+  role: [use]
+  in: [process_water, cooling_water, recycled_water]
+  out: [wastewater, evaporation, recycled_water]
+  params: [flow_rate, pressure, tss, oil_grease, temperature]
+  note: "پساب حاوی پوسته و روغن؛ بازچرخانی پس از ته‌نشینی و فیلتراسیون."
+- id: EQP-04-010
+  fa: "دانه‌بندی و خنک‌سازی سرباره"
+  en: "Slag granulation and quenching"
+  sub: slag_quench
+  ind: [IND-03]
+  role: [use]
+  in: [process_water, recycled_water, fresh_water]
+  out: [evaporation, recycled_water]
+  flows: [sludge_moisture, water_in_product]
+  params: [flow_rate, temperature, tds, level]
+  note: "تبخیر قابل‌توجه و رطوبت همراه سرباره؛ مدار بسته با حوضچه معمول است."
+- id: EQP-04-011
+  fa: "مدار آسیاب تر (خردایش)"
+  en: "Wet grinding mill circuit"
+  sub: grinding_circuit
+  ind: [IND-04, IND-05]
+  role: [use]
+  in: [process_water, recycled_water, fresh_water]
+  out: [process_water]
+  flows: [water_in_product, sludge_moisture]
+  params: [flow_rate, production_rate]
+  note: "آب همراه دوغاب به مرحله بعد می‌رود؛ درصد جامد معیار مصرف آب است."
+- id: EQP-04-012
+  fa: "مدار فلوتاسیون"
+  en: "Flotation circuit"
+  sub: flotation
+  ind: [IND-04]
+  role: [use]
+  in: [process_water, recycled_water, fresh_water]
+  out: [process_water, wastewater]
+  flows: [sludge_moisture, water_in_product]
+  params: [flow_rate, ph, tss, production_rate]
+  note: "آب با کنسانتره و باطله خارج می‌شود؛ کیفیت آب بازگشتی روی بازیابی اثر دارد."
+  ref: [M1-8]
+- id: EQP-04-013
+  fa: "تیکنر (غلیظ‌کننده)"
+  en: "Thickener"
+  sub: thickener
+  ind: [IND-04]
+  role: [recovery]
+  in: [process_water]
+  out: [recycled_water, process_water]
+  flows: [sludge_moisture]
+  params: [flow_rate, level, turbidity, tss]
+  note: "آب سرریز برای بازچرخانی؛ آبگیری لجن و باطله از راهکارهای صنعت معدن است."
+  ref: [M1-8]
+- id: EQP-04-014
+  fa: "انتقال باطله و بازگشت آب سد باطله"
+  en: "Tailings transport and tailings dam water return"
+  sub: tailings_system
+  ind: [IND-04]
+  role: [transport, storage, recovery]
+  in: [process_water]
+  out: [recycled_water, evaporation]
+  flows: [sludge_moisture, leakage_overflow]
+  params: [flow_rate, level, ph, tds]
+  note: "تبخیر و نفوذ از سد باطله و آب بازگشتی در موازنه واحد معدن دیده شود."
+  ref: [M1-8]
+- id: EQP-04-015
+  fa: "آبیاری توده‌های لیچینگ"
+  en: "Heap leach irrigation"
+  sub: heap_leach
+  ind: [IND-04]
+  role: [use]
+  in: [process_water, recycled_water, fresh_water]
+  out: [process_water, evaporation]
+  flows: [water_in_product]
+  params: [flow_rate, volume, ph, temperature]
+  note: "پاشش محلول روی توده؛ تبخیر و آب باقی‌مانده در توده مصرف خالص است."
+- id: EQP-04-016
+  fa: "فیلتر پرس یا فیلتر خلأ با آب شست‌وشوی کیک"
+  en: "Filter press or vacuum filter with cake wash"
+  sub: dewatering_filter
+  ind: [IND-04, IND-09]
+  role: [use, recovery]
+  in: [process_water, fresh_water]
+  out: [recycled_water, wastewater]
+  flows: [sludge_moisture]
+  params: [flow_rate, tss, turbidity, run_time]
+  note: "آب صافی قابل بازگشت به فرآیند است؛ رطوبت کیک از سیستم خارج می‌شود."
+- id: EQP-04-017
+  fa: "برج تهویه و خنک‌سازی گاز کوره با پاشش آب"
+  en: "Kiln gas conditioning tower (water spray)"
+  sub: gas_conditioning_tower
+  ind: [IND-05]
+  role: [use]
+  in: [process_water, recycled_water]
+  out: [evaporation]
+  params: [flow_rate, temperature, pressure]
+  note: "آب کاملاً تبخیر می‌شود؛ مصرف آب برای کنترل دمای گاز و گردوغبار."
+  ref: [M1-8]
+- id: EQP-04-018
+  fa: "کارخانه بتن (بچینگ)"
+  en: "Concrete batching plant"
+  sub: concrete_batching
+  ind: [IND-05]
+  role: [use]
+  in: [fresh_water, recycled_water, reclaimed_water]
+  out: [wastewater]
+  flows: [water_in_product]
+  params: [flow_rate, volume, production_rate]
+  note: "آب مخلوط در محصول می‌ماند؛ شست‌وشوی میکسر و پساب بتن قابل بازچرخانی است."
+- id: EQP-04-019
+  fa: "آسیاب تر و آماده‌سازی لعاب و دوغاب سرامیک"
+  en: "Ceramic slip and glaze wet milling"
+  sub: slip_preparation
+  ind: [IND-05]
+  role: [use]
+  in: [process_water, recycled_water]
+  out: [evaporation, wastewater]
+  flows: [water_in_product]
+  params: [flow_rate, volume, tds]
+  note: "آب دوغاب در خشک‌کن پاششی تبخیر می‌شود؛ پساب شست‌وشوی آسیاب قابل بازچرخانی است."
+- id: EQP-04-020
+  fa: "نمک‌زدا (دی‌سالتر) نفت خام و آب شست‌وشو"
+  en: "Crude desalter and wash water system"
+  sub: desalter
+  ind: [IND-02]
+  role: [use]
+  in: [fresh_water, reclaimed_water, process_water]
+  out: [wastewater]
+  params: [flow_rate, oil_grease, tds, chloride, ph, temperature]
+  note: "آب شست‌وشو نمک را از نفت می‌شوید؛ پساب روغنی و شور تولید می‌کند."
+- id: EQP-04-021
+  fa: "مدار آب کوئنچ و بخار رقیق‌کننده کراکر"
+  en: "Steam cracker quench water and dilution steam loop"
+  sub: cracker_quench
+  ind: [IND-02]
+  role: [use]
+  in: [process_water, boiler_feed_water]
+  out: [wastewater, recycled_water]
+  flows: [steam]
+  params: [flow_rate, temperature, ph, tds, oil_grease]
+  note: "مدار آب پرفشار و بازچرخانی؛ پساب حاوی هیدروکربن."
+- id: EQP-04-022
+  fa: "اسکرابر تر گوگرد‌زدایی دودکش (FGD)"
+  en: "Flue gas desulfurization wet scrubber (FGD)"
+  sub: fgd
+  ind: [IND-01]
+  role: [use]
+  in: [fresh_water, reclaimed_water, process_water]
+  out: [wastewater, evaporation]
+  flows: [sludge_moisture, water_in_product]
+  params: [flow_rate, ph, chloride, tss, level]
+  note: "تبخیر در اسکرابر، آب همراه گچ و بلودان کلراید‌دار؛ از مصارف بزرگ نیروگاه."
+- id: EQP-04-023
+  fa: "حمل خاکستر به روش تر"
+  en: "Wet ash handling"
+  sub: ash_handling
+  ind: [IND-01]
+  role: [use]
+  in: [process_water, recycled_water, fresh_water]
+  out: [recycled_water, wastewater]
+  flows: [sludge_moisture, leakage_overflow]
+  params: [flow_rate, ph, tss, tds]
+  note: "آب حامل خاکستر؛ مدار بسته با ته‌نشینی بازچرخانی معمول است."
+- id: EQP-04-024
+  fa: "پاستوریزاتور تونلی"
+  en: "Tunnel pasteurizer"
+  sub: pasteurizer
+  ind: [IND-06]
+  role: [use]
+  in: [fresh_water, recycled_water]
+  out: [wastewater, evaporation]
+  params: [flow_rate, temperature, ph, chemical_consumption]
+  note: "آب پاششی گردشی با تعویض و تزریق مواد؛ فرصت بازچرخانی و خنک‌کاری ثانویه."
+- id: EQP-04-025
+  fa: "ناودان شست‌وشوی میوه و سبزی"
+  en: "Produce washing flume"
+  sub: produce_washing
+  ind: [IND-06, IND-13]
+  role: [use]
+  in: [potable_water, fresh_water, recycled_water]
+  out: [wastewater]
+  flows: [water_in_product, sludge_moisture]
+  params: [flow_rate, turbidity, tss, residual_chlorine, cod]
+  note: "الزام کیفیت بهداشتی؛ بازچرخانی منوط به کنترل کیفیت میکروبی."
+  ref: [M1-8]
+- id: EQP-04-026
+  fa: "ماشین رنگرزی جت"
+  en: "Jet dyeing machine"
+  sub: dyeing_machine
+  ind: [IND-07]
+  role: [use]
+  in: [process_water, fresh_water]
+  out: [wastewater]
+  flows: [water_in_product]
+  params: [flow_rate, temperature, ph, ec, cod]
+  note: "نسبت حمام و تعداد آبکشی‌ها تعیین‌کننده مصرف؛ پساب رنگی و شور."
+  ref: [M1-8]
+- id: EQP-04-027
+  fa: "خط شست‌وشو و سفیدگری پیوسته"
+  en: "Continuous washing and bleaching range"
+  sub: textile_washing_range
+  ind: [IND-07]
+  role: [use]
+  in: [process_water, recycled_water, fresh_water]
+  out: [wastewater, recycled_water, evaporation]
+  params: [flow_rate, temperature, ph, cod, ec]
+  note: "آبکشی پادجریان و بازچرخانی پساب کم‌آلودگی از راهکارهای شاخص نساجی."
+  ref: [M1-8]
+- id: EQP-04-028
+  fa: "آب پاششی و ناحیه سیم ماشین کاغذ"
+  en: "Paper machine wire part and shower water"
+  sub: paper_machine
+  ind: [IND-08]
+  role: [use]
+  in: [fresh_water, process_water, recycled_water]
+  out: [recycled_water, wastewater, evaporation]
+  flows: [water_in_product]
+  params: [flow_rate, pressure, tss, ph, temperature, production_rate]
+  note: "آب سفید گردشی و دوش‌های شست‌وشو؛ جداسازی جریان‌ها امکان بازچرخانی می‌دهد."
+- id: EQP-04-029
+  fa: "شست‌وشوی خمیر و واحد سفیدسازی"
+  en: "Pulp washing and bleaching washers"
+  sub: pulp_washing
+  ind: [IND-08]
+  role: [use]
+  in: [fresh_water, process_water, recycled_water]
+  out: [wastewater, recycled_water]
+  flows: [water_in_product]
+  params: [flow_rate, cod, ph, tss, temperature]
+  note: "یکی از پرمصرف‌ترین بخش‌های کاغذسازی؛ پساب با COD بالا."
+- id: EQP-04-030
+  fa: "پیش‌تصفیه و آبکشی رنگ‌خانه خودرو"
+  en: "Paint shop pretreatment and rinse"
+  sub: paint_pretreatment
+  ind: [IND-11]
+  role: [use]
+  in: [process_water, ro_permeate, fresh_water]
+  out: [wastewater, recycled_water]
+  params: [flow_rate, ec, ph, tds, temperature, chemical_consumption]
+  note: "آبکشی چندمرحله‌ای با کیفیت پرمیت RO در مرحله نهایی؛ آبکشی پادجریان رایج است."

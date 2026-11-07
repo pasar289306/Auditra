@@ -1,0 +1,251 @@
+system: SYS-06
+defaults: {ind: [ALL], lvl: [process, equipment], status: draft}
+records:
+- id: EQP-06-001
+  fa: "مخزن یکنواخت‌سازی پساب"
+  en: "Wastewater equalization tank"
+  sub: equalization
+  role: [storage, treatment]
+  in: [wastewater]
+  out: [wastewater]
+  flows: [leakage_overflow]
+  params: [flow_rate, level, ph, temperature, cod]
+  note: "بار و دبی را یکنواخت می‌کند؛ تغییر موجودی مخزن در موازنه لحاظ شود."
+  ref: [M1-6.5]
+- id: EQP-06-002
+  fa: "آشغال‌گیر (صافی درشت و ریز)"
+  en: "Screening (bar and fine screens)"
+  sub: screening
+  role: [treatment]
+  in: [wastewater]
+  out: [wastewater]
+  flows: [sludge_moisture]
+  params: [flow_rate, diff_pressure, tss, level]
+  note: "حذف جامدات درشت؛ آب همراه مواد جداشده ناچیز است."
+  ref: [M1-6.5]
+- id: EQP-06-003
+  fa: "حوضچه شن‌گیر"
+  en: "Grit chamber"
+  sub: grit_chamber
+  role: [treatment]
+  in: [wastewater]
+  out: [wastewater]
+  flows: [sludge_moisture]
+  params: [flow_rate, tss, level]
+  note: "حذف ذرات سنگین معدنی."
+  ref: [M1-6.5]
+- id: EQP-06-004
+  fa: "جداکننده روغن و آب (API)"
+  en: "Oil-water separator (API)"
+  sub: oil_water_separator
+  ind: [IND-01, IND-02, IND-03, IND-11, IND-14]
+  role: [treatment]
+  in: [wastewater]
+  out: [wastewater]
+  flows: [sludge_moisture]
+  params: [flow_rate, oil_grease, tss, level, temperature]
+  note: "جداسازی روغن آزاد؛ روغن و لجن جدا‌شده خروجی جامد/مایع جداگانه است."
+  ref: [M1-6.5]
+- id: EQP-06-005
+  fa: "شناورسازی با هوای محلول (DAF)"
+  en: "Dissolved air flotation (DAF)"
+  sub: daf
+  role: [treatment]
+  in: [wastewater]
+  out: [wastewater]
+  flows: [sludge_moisture]
+  params: [flow_rate, oil_grease, tss, cod, ph, chemical_consumption]
+  note: "حذف روغن و ذرات ریز؛ لجن شناور خروجی آن است."
+  ref: [M1-6.5]
+- id: EQP-06-006
+  fa: "واحد انعقاد و لخته‌سازی شیمیایی"
+  en: "Coagulation and flocculation unit"
+  sub: coagulation
+  role: [treatment]
+  in: [wastewater]
+  out: [wastewater]
+  flows: [sludge_moisture]
+  params: [flow_rate, ph, turbidity, tss, chemical_consumption]
+  note: "حذف معلق و کلوئیدی با مواد شیمیایی؛ مصرف مواد در شاخص‌های هزینه ثبت شود."
+  ref: [M1-6.5]
+- id: EQP-06-007
+  fa: "ته‌نشینی اولیه (کلاریفایر اولیه)"
+  en: "Primary clarifier"
+  sub: primary_clarifier
+  role: [treatment]
+  in: [wastewater]
+  out: [wastewater]
+  flows: [sludge_moisture]
+  params: [flow_rate, tss, level, turbidity]
+  note: "حذف جامدات قابل ته‌نشینی پیش از مرحله زیستی."
+  ref: [M1-6.5]
+- id: EQP-06-008
+  fa: "مخزن خنثی‌سازی"
+  en: "Neutralization tank"
+  sub: neutralization
+  role: [treatment]
+  in: [wastewater]
+  out: [wastewater]
+  params: [flow_rate, ph, chemical_consumption]
+  note: "تنظیم pH پیش از تصفیه زیستی یا تخلیه."
+  ref: [M1-6.5]
+- id: EQP-06-009
+  fa: "حوض هوادهی لجن فعال"
+  en: "Activated sludge aeration tank"
+  sub: activated_sludge
+  role: [treatment]
+  in: [wastewater]
+  out: [wastewater]
+  flows: [sludge_moisture]
+  params: [flow_rate, cod, bod5, dissolved_oxygen, tss, ph, electric_power, temperature]
+  note: "راندمان حذف COD و BOD و مصرف انرژی هوادهی؛ لجن مازاد خروجی."
+  ref: [M1-6.5]
+- id: EQP-06-010
+  fa: "بیوراکتور غشایی (MBR)"
+  en: "Membrane bioreactor (MBR)"
+  sub: mbr
+  role: [treatment]
+  in: [wastewater]
+  out: [reclaimed_water, wastewater]
+  flows: [sludge_moisture]
+  params: [flow_rate, cod, tss, dissolved_oxygen, diff_pressure, electric_power]
+  note: "پساب با کیفیت مناسب برای بازیافت؛ کیفیت لازم باید با مصرف مجدد تطبیق داده شود."
+  ref: [M1-6.5, M2-2.2]
+- id: EQP-06-011
+  fa: "بیوراکتور بستر متحرک (MBBR)"
+  en: "Moving bed biofilm reactor (MBBR)"
+  sub: mbbr
+  role: [treatment]
+  in: [wastewater]
+  out: [wastewater]
+  flows: [sludge_moisture]
+  params: [flow_rate, cod, bod5, dissolved_oxygen, ph, electric_power]
+  note: "تصفیه زیستی با پرکننده متحرک؛ حجم کمتر نسبت به لجن فعال."
+  ref: [M1-6.5]
+- id: EQP-06-012
+  fa: "فیلتر چکنده (بیوفیلتر)"
+  en: "Trickling filter"
+  sub: trickling_filter
+  role: [treatment]
+  in: [wastewater]
+  out: [wastewater]
+  flows: [sludge_moisture]
+  params: [flow_rate, cod, bod5, ph, temperature]
+  note: "تصفیه زیستی بستر ثابت."
+  ref: [M1-6.5]
+- id: EQP-06-013
+  fa: "راکتور بی‌هوازی UASB"
+  en: "UASB anaerobic reactor"
+  sub: uasb
+  ind: [IND-06, IND-08, IND-09]
+  role: [treatment]
+  in: [wastewater]
+  out: [wastewater]
+  flows: [sludge_moisture]
+  params: [flow_rate, cod, bod5, ph, temperature, volume]
+  note: "برای پساب پربار آلی؛ نیازمند تصفیه تکمیلی هوازی."
+  ref: [M1-6.5]
+- id: EQP-06-014
+  fa: "ته‌نشینی ثانویه (کلاریفایر ثانویه)"
+  en: "Secondary clarifier"
+  sub: secondary_clarifier
+  role: [treatment]
+  in: [wastewater]
+  out: [wastewater]
+  flows: [sludge_moisture]
+  params: [flow_rate, tss, level, turbidity]
+  note: "جداسازی لجن زیستی از پساب تصفیه‌شده."
+  ref: [M1-6.5]
+- id: EQP-06-015
+  fa: "فیلتر تکمیلی (شنی یا کربن فعال)"
+  en: "Tertiary filter (sand or activated carbon)"
+  sub: tertiary_filter
+  role: [treatment]
+  in: [wastewater]
+  out: [reclaimed_water, wastewater]
+  params: [flow_rate, diff_pressure, turbidity, tss, cod]
+  note: "پالایش نهایی پیش از ضدعفونی یا بازیافت؛ شست‌وشوی معکوس به پساب برمی‌گردد."
+  ref: [M1-6.5]
+- id: EQP-06-016
+  fa: "واحد ضدعفونی (کلرزنی یا UV)"
+  en: "Disinfection unit (chlorination or UV)"
+  sub: disinfection
+  role: [treatment]
+  in: [wastewater]
+  out: [reclaimed_water, wastewater]
+  params: [flow_rate, residual_chlorine, total_coliform, turbidity]
+  note: "الزام برای بازیافت در مصارف دارای تماس انسانی."
+  ref: [M1-6.5]
+- id: EQP-06-017
+  fa: "تغلیظ‌کننده لجن"
+  en: "Sludge thickener"
+  sub: sludge_thickener
+  role: [treatment]
+  in: [wastewater]
+  out: [wastewater]
+  flows: [sludge_moisture]
+  params: [flow_rate, sludge_volume, tss, level]
+  note: "آب جداشده به ورودی تصفیه برمی‌گردد."
+  ref: [M1-6.5]
+- id: EQP-06-018
+  fa: "آبگیری لجن (فیلتر پرس، سانتریفیوژ یا پرس نواری)"
+  en: "Sludge dewatering (filter press, centrifuge, belt press)"
+  sub: sludge_dewatering
+  role: [treatment]
+  in: [wastewater]
+  out: [wastewater]
+  flows: [sludge_moisture]
+  params: [flow_rate, sludge_volume, tss, chemical_consumption, electric_power]
+  note: "صافاب به تصفیه برمی‌گردد؛ رطوبت کیک از سیستم خارج می‌شود."
+  ref: [M1-6.5]
+- id: EQP-06-019
+  fa: "استخر تبخیر پساب"
+  en: "Wastewater evaporation pond"
+  sub: evaporation_pond
+  role: [discharge, storage]
+  in: [wastewater, ro_concentrate, blowdown]
+  out: [evaporation]
+  flows: [leakage_overflow]
+  params: [level, volume, tds]
+  note: "تبخیر سطحی و نفوذ؛ مصرف آب منبع نیست ولی آب از چرخه خارج می‌شود."
+- id: EQP-06-020
+  fa: "تبخیرکننده و کریستالایزر تخلیه صفر مایع (ZLD)"
+  en: "Zero liquid discharge evaporator and crystallizer"
+  sub: zld
+  role: [treatment, recovery]
+  in: [wastewater, ro_concentrate, blowdown]
+  out: [recycled_water]
+  flows: [steam, sludge_moisture]
+  params: [flow_rate, tds, ec, electric_power, steam_flow, temperature]
+  note: "آب مقطر قابل برگشت به فرآیند؛ مصرف انرژی بسیار بالا و جامد نهایی خروجی است."
+- id: EQP-06-021
+  fa: "برج حذف گاز از آب ترش (Sour Water Stripper)"
+  en: "Sour water stripper"
+  sub: sour_water_stripper
+  ind: [IND-02]
+  role: [treatment]
+  in: [wastewater]
+  out: [wastewater, recycled_water]
+  flows: [steam]
+  params: [flow_rate, ph, temperature, cod, steam_flow]
+  note: "آب ترش پالایشگاه؛ آب تقطیرشده برای بازیافت در برخی مصارف."
+- id: EQP-06-022
+  fa: "تصفیه‌خانه فاضلاب بهداشتی (بسته‌بندی‌شده)"
+  en: "Sanitary sewage treatment plant (packaged)"
+  sub: sewage_treatment
+  role: [treatment]
+  in: [wastewater]
+  out: [reclaimed_water, wastewater]
+  flows: [sludge_moisture]
+  params: [flow_rate, bod5, cod, tss, total_coliform, ph]
+  note: "فاضلاب خانگی مجتمع؛ پساب تصفیه‌شده برای فضای سبز یا سیفون قابل استفاده است."
+  ref: [M2-2.2]
+- id: EQP-06-023
+  fa: "نقطه تخلیه نهایی پساب (خروجی مجتمع)"
+  en: "Final effluent discharge point (site outfall)"
+  sub: effluent_outfall
+  lvl: [site, equipment]
+  role: [discharge]
+  in: [wastewater, blowdown, ro_concentrate]
+  params: [flow_rate, volume, ph, cod, bod5, tss, tds, temperature, oil_grease]
+  note: "مرز مجتمع؛ مبنای تراز خروجی و بررسی انطباق با استاندارد تخلیه."

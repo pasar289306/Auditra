@@ -1,0 +1,116 @@
+system: SYS-07
+defaults: {ind: [ALL], lvl: [process, equipment], status: draft}
+records:
+- id: EQP-07-001
+  fa: "واحد آب‌شیرین‌کن DM (تبادل یونی کاتیون و آنیون)"
+  en: "Demineralization (DM) plant, cation and anion exchange"
+  sub: dm_plant
+  role: [treatment]
+  in: [fresh_water, raw_water, ro_permeate]
+  out: [boiler_feed_water, process_water, wastewater]
+  params: [flow_rate, ec, silica, ph, volume, chemical_consumption]
+  note: "آب دمین برای بویلر و فرآیند؛ احیای رزین پساب اسیدی و قلیایی تولید می‌کند."
+  ref: [M2-2.2]
+- id: EQP-07-002
+  fa: "بستر مخلوط پرداخت‌کننده (Mixed Bed)"
+  en: "Mixed-bed polisher"
+  sub: mixed_bed
+  role: [treatment]
+  in: [fresh_water, ro_permeate]
+  out: [boiler_feed_water, process_water, wastewater]
+  params: [flow_rate, ec, silica]
+  note: "پالایش نهایی تا هدایت بسیار پایین."
+  ref: [M2-2.2]
+- id: EQP-07-003
+  fa: "الکترودیونیزاسیون (EDI)"
+  en: "Electrodeionization (EDI)"
+  sub: edi
+  role: [treatment]
+  in: [ro_permeate]
+  out: [boiler_feed_water, process_water, ro_concentrate]
+  params: [flow_rate, ec, silica, electric_power]
+  note: "جایگزین بدون مواد شیمیایی برای بستر مخلوط؛ جریان تغلیظ برمی‌گردد."
+- id: EQP-07-004
+  fa: "سختی‌گیر (تبادل یونی سدیمی)"
+  en: "Water softener (sodium-cycle ion exchange)"
+  sub: softener
+  role: [treatment]
+  in: [fresh_water, raw_water]
+  out: [process_water, boiler_feed_water, wastewater]
+  params: [hardness, flow_rate, chemical_consumption, volume]
+  note: "احیا با نمک و پساب شور؛ حجم آب احیا در موازنه ثبت شود."
+- id: EQP-07-005
+  fa: "گاززدای دی‌کربناتور (Degasser)"
+  en: "Degasser / decarbonator"
+  sub: degasser
+  role: [treatment]
+  in: [fresh_water, ro_permeate]
+  out: [process_water]
+  params: [alkalinity, ph, flow_rate]
+  note: "حذف CO2 محلول پیش از مبادله یونی یا بعد از RO."
+- id: EQP-07-006
+  fa: "سامانه مواد شیمیایی احیای رزین"
+  en: "Ion exchange regeneration chemical system"
+  sub: regeneration_system
+  role: [control, treatment]
+  in: [fresh_water]
+  out: [wastewater]
+  params: [chemical_consumption, volume, ph, ec]
+  note: "منبع اصلی پساب اسیدی و قلیایی DM؛ باید به خنثی‌سازی برود."
+- id: EQP-07-007
+  fa: "قلیایی‌زدا (Dealkalizer)"
+  en: "Dealkalizer"
+  sub: dealkalizer
+  role: [treatment]
+  in: [fresh_water]
+  out: [process_water, wastewater]
+  params: [alkalinity, hardness, flow_rate]
+  note: "کاهش قلیایی پیش از بویلر یا فرآیند."
+- id: EQP-07-008
+  fa: "زلال‌ساز نرم‌کننده آهک سرد"
+  en: "Cold lime softening clarifier"
+  sub: lime_softening
+  role: [treatment]
+  in: [raw_water]
+  out: [process_water, wastewater]
+  flows: [sludge_moisture]
+  params: [hardness, alkalinity, turbidity, ph, chemical_consumption, flow_rate]
+  note: "کاهش سختی و قلیایی با آهک؛ لجن حجیم تولید می‌کند."
+- id: EQP-07-009
+  fa: "تولید و توزیع آب خالص و WFI (حلقه توزیع)"
+  en: "Purified water and WFI generation and distribution loop"
+  sub: pharma_water_loop
+  ind: [IND-10]
+  role: [treatment, transport]
+  in: [ro_permeate, fresh_water]
+  out: [process_water, wastewater]
+  params: [ec, temperature, flow_rate, total_coliform, level]
+  note: "حلقه گردشی با الزام کیفی؛ آب تخلیه و نمونه‌برداری مصرف قابل‌توجه دارد."
+- id: EQP-07-010
+  fa: "حلقه صیقل و توزیع آب فوق‌خالص (UPW)"
+  en: "Ultrapure water (UPW) polishing and distribution loop"
+  sub: upw_loop
+  ind: [IND-12]
+  role: [treatment, transport]
+  in: [ro_permeate]
+  out: [process_water, wastewater]
+  params: [ec, flow_rate, temperature, pressure]
+  note: "کیفیت بسیار بالا؛ بازیافت آبکشی‌ها کاهش آب تازه را ممکن می‌کند."
+- id: EQP-07-011
+  fa: "فیلتر کربن فعال (کلرزدایی)"
+  en: "Activated carbon filter (dechlorination)"
+  sub: carbon_filter
+  role: [treatment]
+  in: [fresh_water, potable_water]
+  out: [fresh_water, wastewater]
+  params: [flow_rate, residual_chlorine, diff_pressure, turbidity]
+  note: "حفاظت غشا و رزین در برابر کلر؛ شست‌وشوی معکوس پساب دارد."
+- id: EQP-07-012
+  fa: "واحد ضدعفونی و کلرزنی آب شرب"
+  en: "Potable water disinfection and chlorination unit"
+  sub: potable_disinfection
+  role: [treatment]
+  in: [fresh_water, raw_water]
+  out: [potable_water]
+  params: [flow_rate, residual_chlorine, ph, turbidity, total_coliform]
+  note: "تبدیل آب به کیفیت شرب؛ کلر باقی‌مانده در شبکه پایش شود."

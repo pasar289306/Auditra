@@ -1,0 +1,113 @@
+system: SYS-03
+defaults: {ind: [ALL], lvl: [process, equipment], status: draft}
+records:
+- id: EQP-03-001
+  fa: "اسمز معکوس آب لب‌شور (BWRO)"
+  en: "Brackish water reverse osmosis (BWRO)"
+  sub: reverse_osmosis
+  role: [treatment]
+  in: [fresh_water, raw_water, reclaimed_water]
+  out: [ro_permeate, ro_concentrate]
+  params: [flow_rate, pressure, diff_pressure, ec, tds, temperature, energy_consumption]
+  note: "بازیابی برابر نسبت دبی پرمیت به خوراک است؛ افزایش بازیابی بدون بررسی رسوب‌گذاری ممنوع."
+  ref: [M1-6.3, M2-4.6]
+- id: EQP-03-002
+  fa: "اسمز معکوس آب دریا (SWRO)"
+  en: "Seawater reverse osmosis (SWRO)"
+  sub: reverse_osmosis
+  role: [treatment]
+  in: [raw_water]
+  out: [ro_permeate, ro_concentrate]
+  params: [flow_rate, pressure, diff_pressure, ec, tds, temperature, energy_consumption]
+  note: "بازیابی کمتر و فشار بالاتر از آب لب‌شور؛ دفع کنسانتره به مقصد مجاز باید ثبت شود."
+  ref: [M1-6.3]
+- id: EQP-03-003
+  fa: "اولترافیلتراسیون (UF)"
+  en: "Ultrafiltration (UF)"
+  sub: ultrafiltration
+  role: [treatment]
+  in: [raw_water, fresh_water, reclaimed_water]
+  out: [fresh_water, wastewater]
+  params: [flow_rate, diff_pressure, turbidity, tss, volume]
+  note: "پیش‌تصفیه RO یا پالایش پساب؛ شست‌وشوی معکوس بخشی از خوراک را به پساب می‌برد."
+  ref: [M1-6.3]
+- id: EQP-03-004
+  fa: "میکروفیلتراسیون (MF)"
+  en: "Microfiltration (MF)"
+  sub: microfiltration
+  role: [treatment]
+  in: [raw_water, fresh_water, reclaimed_water]
+  out: [fresh_water, wastewater]
+  params: [flow_rate, diff_pressure, turbidity, tss, volume]
+  note: "حذف ذرات و ریزمعلق‌ها؛ حجم شست‌وشوی معکوس در موازنه ثبت شود."
+  ref: [M1-6.3]
+- id: EQP-03-005
+  fa: "نانوفیلتراسیون (NF)"
+  en: "Nanofiltration (NF)"
+  sub: nanofiltration
+  role: [treatment]
+  in: [fresh_water, raw_water, reclaimed_water]
+  out: [ro_permeate, ro_concentrate]
+  params: [flow_rate, pressure, diff_pressure, ec, hardness, sulfate, temperature]
+  note: "حذف سختی و سولفات؛ جریان‌های محصول و تغلیظ‌شده تا تعریف نوع جدید با انواع RO ثبت می‌شوند."
+  ref: [M1-6.3]
+- id: EQP-03-006
+  fa: "فیلتر چندلایه (شنی و ضدتوده)"
+  en: "Multimedia / sand pretreatment filter"
+  sub: media_filter
+  role: [treatment]
+  in: [raw_water, fresh_water]
+  out: [fresh_water, wastewater]
+  params: [flow_rate, diff_pressure, turbidity, tss]
+  note: "پیش‌تصفیه معمول؛ شست‌وشوی معکوس منبع پساب و مصرف آب داخلی است."
+  ref: [M1-6.3]
+- id: EQP-03-007
+  fa: "فیلتر کارتریجی"
+  en: "Cartridge filter"
+  sub: cartridge_filter
+  role: [treatment]
+  in: [fresh_water]
+  out: [fresh_water]
+  params: [flow_rate, diff_pressure, turbidity]
+  note: "حفاظت نهایی غشا؛ افزایش ΔP معیار تعویض."
+  ref: [M1-6.3]
+- id: EQP-03-008
+  fa: "سامانه تزریق ضدرسوب و مواد شیمیایی غشا"
+  en: "Membrane antiscalant and chemical dosing system"
+  sub: chemical_dosing
+  role: [treatment, control]
+  in: [fresh_water]
+  out: [fresh_water]
+  params: [flow_rate, ph, chemical_consumption]
+  note: "بازیابی مجاز RO به شیمی آب و تزریق صحیح ضدرسوب بستگی دارد."
+  ref: [M1-6.3]
+- id: EQP-03-009
+  fa: "ایستگاه شست‌وشوی شیمیایی و فلاشینگ غشا (CIP غشا)"
+  en: "Membrane chemical cleaning and flushing skid"
+  sub: membrane_cip
+  role: [treatment, use]
+  in: [ro_permeate, fresh_water]
+  out: [wastewater]
+  params: [flow_rate, volume, ph, temperature]
+  note: "شست‌وشو بر اساس شرایط واقعی غشا انجام شود؛ حجم پساب شیمیایی ثبت شود."
+  ref: [M1-6.3]
+- id: EQP-03-010
+  fa: "خط مدیریت و استفاده مجدد کنسانتره RO"
+  en: "RO concentrate handling and reuse line"
+  sub: concentrate_reuse
+  role: [recovery, discharge]
+  in: [ro_concentrate]
+  out: [reclaimed_water, wastewater]
+  params: [flow_rate, ec, tds, volume]
+  note: "استفاده مجدد فقط در کاربردهای سازگار با شوری؛ مازاد به تصفیه یا تخلیه می‌رود."
+  ref: [M1-6.3, M1-8]
+- id: EQP-03-011
+  fa: "اسمز معکوس مرحله دوم"
+  en: "Second-pass reverse osmosis"
+  sub: reverse_osmosis
+  role: [treatment]
+  in: [ro_permeate]
+  out: [ro_permeate, ro_concentrate]
+  params: [flow_rate, pressure, ec, energy_consumption]
+  note: "کیفیت آب بالا برای دیگ بخار یا فرآیند؛ کنسانتره مرحله دوم اغلب به ورودی مرحله اول برمی‌گردد."
+  ref: [M1-6.3]

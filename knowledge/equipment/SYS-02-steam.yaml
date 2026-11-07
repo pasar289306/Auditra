@@ -1,0 +1,182 @@
+system: SYS-02
+defaults: {ind: [ALL], lvl: [process, equipment], status: draft}
+records:
+- id: EQP-02-001
+  fa: "بویلر لوله‌آتشی"
+  en: "Fire-tube boiler"
+  sub: boiler
+  role: [use]
+  in: [boiler_feed_water]
+  out: [blowdown]
+  flows: [steam]
+  params: [flow_rate, steam_flow, level, pressure, ec, tds]
+  note: "آب تغذیه تقریباً برابر بخار تولیدی به‌علاوه بلودان است؛ شاخص آب جبرانی به بخار تولیدی."
+  ref: [M1-6.2]
+- id: EQP-02-002
+  fa: "بویلر لوله‌آبی"
+  en: "Water-tube boiler"
+  sub: boiler
+  role: [use]
+  in: [boiler_feed_water]
+  out: [blowdown]
+  flows: [steam]
+  params: [flow_rate, steam_flow, level, pressure, ec, tds]
+  note: "همان موازنه بویلر؛ کیفیت آب تغذیه در فشارهای بالا سخت‌گیرانه‌تر است."
+  ref: [M1-6.2]
+- id: EQP-02-003
+  fa: "بویلر بازیاب حرارت (HRSG)"
+  en: "Heat recovery steam generator (HRSG)"
+  sub: boiler
+  ind: [IND-01, IND-02, IND-09]
+  role: [use]
+  in: [boiler_feed_water]
+  out: [blowdown]
+  flows: [steam]
+  params: [flow_rate, steam_flow, level, pressure, ec, tds]
+  note: "بخار از گاز داغ فرآیند یا توربین گاز تولید می‌شود؛ بلودان و کندانس مانند بویلر ثبت می‌شود."
+  ref: [M1-6.2]
+- id: EQP-02-004
+  fa: "هوازدا (دی‌اریتور)"
+  en: "Deaerator"
+  sub: deaerator
+  role: [treatment]
+  in: [boiler_feed_water, condensate, ro_permeate]
+  out: [boiler_feed_water]
+  flows: [steam]
+  params: [flow_rate, temperature, pressure, level]
+  note: "گازهای محلول را حذف می‌کند و بخار تهویه دارد؛ نقطه اختلاط کندانس و آب جبرانی."
+  ref: [M1-6.2]
+- id: EQP-02-005
+  fa: "مخزن آب تغذیه بویلر"
+  en: "Boiler feedwater tank"
+  sub: feedwater_tank
+  role: [storage]
+  in: [boiler_feed_water, condensate, ro_permeate]
+  out: [boiler_feed_water]
+  flows: [leakage_overflow]
+  params: [level, temperature, ec]
+  note: "تغییر موجودی و سرریز مخزن در موازنه واحد بخار لحاظ می‌شود."
+  ref: [M1-6.2]
+- id: EQP-02-006
+  fa: "سامانه بلودان پیوسته"
+  en: "Continuous blowdown system"
+  sub: blowdown_system
+  role: [control, discharge]
+  in: [blowdown]
+  out: [blowdown, wastewater]
+  params: [ec, tds, flow_rate, temperature, pressure]
+  note: "کنترل بلودان بر اساس هدایت یا TDS؛ کاهش بلودان غیرضروری صرفه‌جویی آب و گرما دارد."
+  ref: [M1-6.2]
+- id: EQP-02-007
+  fa: "سامانه بلودان متناوب (ته‌نشین)"
+  en: "Intermittent (bottom) blowdown system"
+  sub: blowdown_system
+  role: [control, discharge]
+  in: [blowdown]
+  out: [wastewater]
+  params: [flow_rate, volume, run_time, ec]
+  note: "تخلیه‌های زمان‌بندی‌شده؛ حجم هر تخلیه و تعداد دفعات باید ثبت شود."
+  ref: [M1-6.2]
+- id: EQP-02-008
+  fa: "مخزن فلش و مبدل بازیافت حرارت بلودان"
+  en: "Blowdown flash tank and heat recovery exchanger"
+  sub: blowdown_recovery
+  role: [recovery]
+  in: [blowdown]
+  out: [blowdown, condensate, wastewater]
+  flows: [steam]
+  params: [flow_rate, temperature, pressure, ec]
+  note: "بخار فلش و گرمای بلودان بازیافت می‌شود؛ بازیافت آب آن فقط در مصارف سازگار."
+  ref: [M1-6.2]
+- id: EQP-02-009
+  fa: "سامانه بازگشت کندانس (مخزن و پمپ)"
+  en: "Condensate return system (tank and pumps)"
+  sub: condensate_return
+  role: [recovery, storage, transport]
+  in: [condensate]
+  out: [condensate, boiler_feed_water]
+  flows: [leakage_overflow]
+  params: [flow_rate, level, temperature, ec]
+  note: "نرخ بازیافت کندانس نسبت کندانس برگشتی به ظرفیت بالقوه است؛ افت آن آب جبرانی را بالا می‌برد."
+  ref: [M1-6.2]
+- id: EQP-02-010
+  fa: "پالایشگر کندانس (فیلتر یا رزین)"
+  en: "Condensate polisher (filter or ion exchange)"
+  sub: condensate_polisher
+  role: [treatment]
+  in: [condensate]
+  out: [condensate, wastewater]
+  params: [ec, tds, silica, flow_rate, diff_pressure]
+  note: "کیفیت کندانس برگشتی را برای ورود به بویلر حفظ می‌کند؛ بازیافت بیشتر کندانس نیازمند آن است."
+  ref: [M1-6.2]
+- id: EQP-02-011
+  fa: "تله‌های بخار (مجموعه)"
+  en: "Steam traps (group)"
+  sub: steam_trap
+  role: [control]
+  in: [condensate]
+  out: [condensate]
+  flows: [steam]
+  params: [temperature, pressure, flow_rate]
+  note: "تله معیوب باز یا بسته می‌ماند؛ نشت بخار زنده و افت بازگشت کندانس."
+  ref: [M1-6.2]
+- id: EQP-02-012
+  fa: "کندانسور سطحی توربین بخار (سمت آب خنک‌کاری)"
+  en: "Steam turbine surface condenser (cooling water side)"
+  sub: surface_condenser
+  ind: [IND-01, IND-02]
+  role: [use]
+  in: [cooling_water, raw_water]
+  out: [cooling_water, condensate]
+  params: [flow_rate, temperature, ec, diff_pressure]
+  note: "آب خنک‌کاری یک‌بارگذر یا مدار برج؛ کندانس بخار به چرخه برمی‌گردد."
+- id: EQP-02-013
+  fa: "کاهنده دمای بخار (دی‌سوپرهیتر)"
+  en: "Desuperheater (attemperator)"
+  sub: desuperheater
+  role: [use]
+  in: [boiler_feed_water]
+  flows: [steam]
+  params: [flow_rate, temperature, pressure]
+  note: "آب پاششی به بخار تبدیل می‌شود و در موازنه به بخار تولیدی اضافه می‌گردد."
+- id: EQP-02-014
+  fa: "مخزن بازیافت بخار فلش"
+  en: "Flash steam recovery vessel"
+  sub: flash_recovery
+  role: [recovery]
+  in: [condensate]
+  out: [condensate]
+  flows: [steam]
+  params: [pressure, temperature, level]
+  note: "کندانس پرفشار را فلش می‌کند و بخار کم‌فشار را به مصرف‌کننده می‌دهد."
+- id: EQP-02-015
+  fa: "شبکه توزیع بخار (هدرها و خطوط)"
+  en: "Steam distribution network (headers and piping)"
+  sub: steam_network
+  lvl: [site, process, equipment]
+  role: [transport]
+  out: [condensate]
+  flows: [steam, leakage_overflow]
+  params: [pressure, temperature, steam_flow]
+  note: "نشتی شبکه بخار و کندانس باید از مصرف مفید تفکیک شود."
+  ref: [M1-6.2]
+- id: EQP-02-016
+  fa: "سامانه تزریق مواد شیمیایی بویلر (اکسیژن‌گیر و کنترل pH)"
+  en: "Boiler chemical feed system (oxygen scavenger and pH control)"
+  sub: chemical_dosing
+  role: [treatment, control]
+  in: [boiler_feed_water]
+  out: [boiler_feed_water]
+  params: [ph, ec, chemical_consumption, flow_rate]
+  note: "کیفیت آب تغذیه و بلودان لازم را تعیین می‌کند."
+  ref: [M1-6.2]
+- id: EQP-02-017
+  fa: "مبدل یا ژاکت گرمایشی با بخار (مصرف‌کننده بخار فرآیند)"
+  en: "Steam-heated process heat exchanger or jacket"
+  sub: steam_consumer
+  role: [use]
+  out: [condensate]
+  flows: [steam]
+  params: [steam_flow, flow_rate, temperature, pressure]
+  note: "منبع کندانس؛ اگر کندانس برنگردد آن آب و گرما هدر می‌رود."
+  ref: [M1-6.2]

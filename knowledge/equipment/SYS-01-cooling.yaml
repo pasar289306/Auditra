@@ -1,0 +1,211 @@
+system: SYS-01
+defaults: {ind: [ALL], lvl: [process, equipment], status: draft}
+records:
+- id: EQP-01-001
+  fa: "برج خنک‌کن تبخیری مدار باز، مکش القایی و جریان مخالف"
+  en: "Open evaporative cooling tower, induced-draft counterflow"
+  sub: cooling_tower
+  role: [use]
+  in: [fresh_water, reclaimed_water, rainwater, cooling_water]
+  out: [cooling_water, evaporation, blowdown]
+  flows: [drift, leakage_overflow]
+  params: [flow_rate, temperature, wet_bulb_temperature, ec, tds, level]
+  note: "آب جبرانی باید به تبخیر، بلودان، دریفت و نشتی تفکیک شود؛ سیکل تغلیظ از نسبت هدایت بلودان به آب جبرانی به دست می‌آید."
+  ref: [M1-6.1]
+- id: EQP-01-002
+  fa: "برج خنک‌کن تبخیری مدار باز، جریان متقاطع"
+  en: "Open evaporative cooling tower, crossflow"
+  sub: cooling_tower
+  role: [use]
+  in: [fresh_water, reclaimed_water, rainwater, cooling_water]
+  out: [cooling_water, evaporation, blowdown]
+  flows: [drift, leakage_overflow]
+  params: [flow_rate, temperature, wet_bulb_temperature, ec, tds, level]
+  note: "همان موازنه برج مدار باز؛ آب جبرانی برابر مجموع تبخیر، بلودان، دریفت و نشتی."
+  ref: [M1-6.1]
+- id: EQP-01-003
+  fa: "برج خنک‌کن تبخیری مدار باز، مکش اجباری"
+  en: "Open evaporative cooling tower, forced-draft"
+  sub: cooling_tower
+  role: [use]
+  in: [fresh_water, reclaimed_water, rainwater, cooling_water]
+  out: [cooling_water, evaporation, blowdown]
+  flows: [drift, leakage_overflow]
+  params: [flow_rate, temperature, wet_bulb_temperature, ec, tds, level]
+  note: "همان موازنه برج مدار باز؛ نوع دمنده فقط روی توان و دریفت اثر دارد."
+  ref: [M1-6.1]
+- id: EQP-01-004
+  fa: "برج خنک‌کن طبیعی هایپربولیک"
+  en: "Natural-draft (hyperbolic) cooling tower"
+  sub: cooling_tower
+  ind: [IND-01, IND-02]
+  role: [use]
+  in: [fresh_water, reclaimed_water, cooling_water]
+  out: [cooling_water, evaporation, blowdown]
+  flows: [drift, leakage_overflow]
+  params: [flow_rate, temperature, wet_bulb_temperature, ec, tds, level]
+  note: "معمولاً در ظرفیت‌های بزرگ نیروگاهی و پالایشگاهی؛ تبخیر بخش اصلی مصرف خالص است."
+  ref: [M1-6.1]
+- id: EQP-01-005
+  fa: "برج خنک‌کن مدار بسته (سیال‌خنک‌کن تبخیری)"
+  en: "Closed-circuit evaporative cooling tower (fluid cooler)"
+  sub: closed_circuit_tower
+  role: [use]
+  in: [fresh_water, reclaimed_water, cooling_water]
+  out: [cooling_water, evaporation, blowdown]
+  flows: [drift]
+  params: [flow_rate, temperature, wet_bulb_temperature, ec, tds, level]
+  note: "سیال فرآیند در مدار بسته می‌ماند و آب پاششی مدار بیرونی تبخیر و بلودان دارد."
+- id: EQP-01-006
+  fa: "برج خنک‌کن ترکیبی تر و خشک"
+  en: "Hybrid wet/dry cooling tower"
+  sub: hybrid_tower
+  role: [use]
+  in: [fresh_water, reclaimed_water, cooling_water]
+  out: [cooling_water, evaporation, blowdown]
+  flows: [drift]
+  params: [flow_rate, temperature, wet_bulb_temperature, ec, level, electric_power]
+  note: "بخش خشک سهم تبخیر را کاهش می‌دهد؛ مصرف آب و مصرف انرژی باید با هم ارزیابی شوند."
+- id: EQP-01-007
+  fa: "سامانه خنک‌کاری یک‌بارگذر (برداشت و تخلیه)"
+  en: "Once-through cooling water system (intake and discharge)"
+  sub: once_through_cooling
+  lvl: [site, process, equipment]
+  role: [intake, use, discharge]
+  in: [raw_water]
+  out: [cooling_water]
+  params: [flow_rate, volume, temperature, ec, tds]
+  note: "برداشت بسیار بزرگ و برگشت به منبع؛ برداشت و بار حرارتی تخلیه مهم‌تر از مصرف خالص است."
+  ref: [M1-2.2]
+- id: EQP-01-008
+  fa: "حوضچه آب سرد برج خنک‌کن"
+  en: "Cooling tower cold-water basin"
+  sub: tower_basin
+  role: [storage]
+  in: [cooling_water, fresh_water, reclaimed_water, rainwater]
+  out: [cooling_water, blowdown]
+  flows: [leakage_overflow]
+  params: [level, ec, tds, temperature]
+  note: "نقطه اصلی سرریز و نشتی حوضچه؛ کنترل سطح و سرریز در موازنه برج لحاظ می‌شود."
+  ref: [M1-6.1]
+- id: EQP-01-009
+  fa: "حذف‌کننده قطرات (دریفت الیمینیتور)"
+  en: "Drift eliminator"
+  sub: drift_eliminator
+  role: [control]
+  in: [cooling_water]
+  out: [cooling_water]
+  flows: [drift]
+  params: [flow_rate, diff_pressure]
+  note: "اصلاح یا تعویض آن، دریفت را کاهش می‌دهد؛ دریفت جزو معادله موازنه برج است."
+  ref: [M1-6.1]
+- id: EQP-01-010
+  fa: "سامانه کنترل خودکار بلودان بر اساس هدایت الکتریکی"
+  en: "Conductivity-based blowdown control system"
+  sub: blowdown_control
+  role: [control]
+  in: [cooling_water]
+  out: [blowdown, cooling_water]
+  params: [ec, tds, flow_rate, volume]
+  note: "بلودان را با هدایت الکتریکی کنترل می‌کند؛ پایه کنترل سیکل تغلیظ."
+  ref: [M1-6.1]
+- id: EQP-01-011
+  fa: "سامانه تأمین آب جبرانی برج (شیر کنترل سطح و کنتور)"
+  en: "Cooling tower make-up water system (level valve and meter)"
+  sub: makeup_system
+  role: [intake, control]
+  in: [fresh_water, reclaimed_water, rainwater]
+  out: [cooling_water]
+  flows: [leakage_overflow]
+  params: [flow_rate, volume, level]
+  note: "کنتور آب جبرانی داده اصلی برای موازنه و تشخیص نشتی برج است."
+  ref: [M1-6.1]
+- id: EQP-01-012
+  fa: "فیلتر جریان فرعی آب خنک‌کاری"
+  en: "Cooling water side-stream filter"
+  sub: side_stream_filter
+  role: [treatment]
+  in: [cooling_water]
+  out: [cooling_water, wastewater]
+  params: [flow_rate, turbidity, tss, diff_pressure]
+  note: "ذرات معلق را از بخشی از مدار حذف می‌کند؛ شست‌وشوی معکوس آن پساب تولید می‌کند."
+- id: EQP-01-013
+  fa: "سامانه تزریق مواد شیمیایی آب خنک‌کاری (رسوب‌گیر، ضدخوردگی، ضدمیکروب)"
+  en: "Cooling water chemical dosing system (scale, corrosion, biocide)"
+  sub: chemical_dosing
+  role: [treatment, control]
+  in: [cooling_water]
+  out: [cooling_water]
+  params: [ph, ec, chemical_consumption, residual_chlorine, flow_rate]
+  note: "برنامه تزریق روی سقف سیکل تغلیظ و کیفیت بلودان اثر می‌گذارد."
+  ref: [M1-6.1]
+- id: EQP-01-014
+  fa: "مبدل حرارتی پوسته و لوله خنک‌شونده با آب"
+  en: "Water-cooled shell-and-tube heat exchanger"
+  sub: heat_exchanger
+  role: [use]
+  in: [cooling_water]
+  out: [cooling_water]
+  params: [flow_rate, temperature, diff_pressure, pressure]
+  note: "رسوب و گرفتگی دبی موردنیاز آب خنک‌کاری را بالا می‌برد؛ ΔP و دماهای ورودی و خروجی را پایش کنید."
+  ref: [M1-2.2]
+- id: EQP-01-015
+  fa: "مبدل حرارتی صفحه‌ای خنک‌شونده با آب"
+  en: "Water-cooled plate heat exchanger"
+  sub: heat_exchanger
+  role: [use]
+  in: [cooling_water]
+  out: [cooling_water]
+  params: [flow_rate, temperature, diff_pressure, pressure]
+  note: "مانند مبدل پوسته و لوله؛ حساس به گرفتگی، با ΔP قابل پایش."
+  ref: [M1-2.2]
+- id: EQP-01-016
+  fa: "مدار آب کندانسور چیلر آب‌خنک"
+  en: "Water-cooled chiller condenser water loop"
+  sub: chiller_condenser_loop
+  role: [use]
+  in: [cooling_water]
+  out: [cooling_water]
+  params: [flow_rate, temperature, diff_pressure, electric_power]
+  note: "معمولاً به برج خنک‌کن متصل است؛ آب مصرفی آن در موازنه برج دیده می‌شود."
+- id: EQP-01-017
+  fa: "کندانسور تبخیری"
+  en: "Evaporative condenser"
+  sub: evaporative_condenser
+  role: [use]
+  in: [fresh_water, reclaimed_water, cooling_water]
+  out: [cooling_water, evaporation, blowdown]
+  flows: [drift]
+  params: [flow_rate, temperature, wet_bulb_temperature, ec, level]
+  note: "آب پاششی تبخیر می‌شود و نیاز به بلودان و آب جبرانی دارد، مانند برج."
+- id: EQP-01-018
+  fa: "استخر یا حوضچه پاششی خنک‌کاری"
+  en: "Spray or cooling pond"
+  sub: cooling_pond
+  ind: [IND-01, IND-03]
+  role: [use, storage]
+  in: [fresh_water, rainwater, cooling_water]
+  out: [cooling_water, evaporation, blowdown]
+  flows: [leakage_overflow]
+  params: [level, volume, temperature, ec, tds]
+  note: "تبخیر سطحی بزرگ؛ تراز و نشت زمین نیز در موازنه مهم است."
+- id: EQP-01-019
+  fa: "مدار خنک‌کاری پنل‌ها و سقف کوره قوس الکتریکی"
+  en: "Electric arc furnace water-cooled panel and roof circuit"
+  sub: furnace_cooling_circuit
+  ind: [IND-03]
+  role: [use]
+  in: [cooling_water]
+  out: [cooling_water]
+  params: [flow_rate, temperature, pressure, diff_pressure]
+  note: "نشتی پنل هم خطر ایمنی است و هم آب جبرانی را بالا می‌برد؛ دبی ورودی و خروجی باید مقایسه شود."
+- id: EQP-01-020
+  fa: "مدار بسته خنک‌کاری کوره القایی"
+  en: "Induction furnace closed cooling circuit"
+  sub: furnace_cooling_circuit
+  ind: [IND-03]
+  role: [use]
+  in: [cooling_water]
+  out: [cooling_water]
+  params: [flow_rate, temperature, ec, level]
+  note: "مدار بسته با مبدل یا برج کوچک؛ افت سطح مدار نشانه نشتی است."
